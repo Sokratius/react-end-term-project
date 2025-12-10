@@ -1,46 +1,45 @@
-# CineStream Pro 🎬
+#  CineStream Pro
 
-CineStream Pro is a movie web app built with **React** and **Firebase**.  
-Users can browse movies, add them to favorites, and use the app offline.
+![CineStream Pro Screenshot](./CineStream-Pro.png)
 
-![App Screenshot](./CineStream-Pro.png)
-
----
-
-## **Features**
-
-- **Authentication**: Signup, login, logout with Firebase Auth.  
-- **Protected pages**: Profile or Dashboard for logged-in users only.  
-- **Movies**: List of movies, movie details, search, filters, and pagination.  
-- **Favorites**: Save movies locally for guests or in Firestore for logged-in users.  
-- **Profile Picture**: Upload and compress profile pictures, stored in Firebase.  
-- **PWA**: Offline support with service worker and installable app.  
-- **Languages**: English, Russian, Kazakh.  
+**CineStream Pro** is a modern movie web app built with **React**, **Tailwind CSS**, **TypeScript**, and **Firebase**.  
+Users can browse movies, add them to favorites, and use the app offline thanks to PWA support.
 
 ---
 
-## **Pages**
+##  **Tech Stack**
 
-- Home / About Us  
-- Login / Signup  
-- Movies List  
-- Movie Details  
-- Favorites / Bookmarks / Cart  
-- Profile / Dashboard (protected)
+![React](https://img.shields.io/badge/React-18-blue?logo=react&logoColor=white)  
+![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-38B2AC?logo=tailwind-css&logoColor=white)  
+![Firebase](https://img.shields.io/badge/Firebase-FFCA28?logo=firebase&logoColor=white)  
+![PWA](https://img.shields.io/badge/PWA-Offline-brightgreen)  
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
 
 ---
 
-## **Installation**
+##  **Features**
+
+-  **Authentication**: Signup, login, logout with Firebase Auth  
+-  **Protected pages**: Profile or Dashboard accessible only to logged-in users  
+-  **Movies**: Browse movies list, view movie details, search, filters, and pagination  
+-  **Favorites**: Save movies locally for guests or in Firestore for logged-in users  
+-  **Profile Picture**: Upload and compress profile pictures, stored in Firebase Storage  
+-  **PWA**: Offline support and installable app  
+-  **Languages**: English, Russian, Kazakh  
+
+---
+
+##  **Installation**
 
 ```bash
-# Clone the repository
+# 1. Clone the repository
 git clone https://github.com/Sokratius/react-end-term-project.git
 
-# Install dependencies
+# 2. Install dependencies
 cd react-end-term-project
 npm install
 
-# Create .env with Firebase config
+# 3. Create .env file with Firebase config
 REACT_APP_FIREBASE_API_KEY=...
 REACT_APP_FIREBASE_AUTH_DOMAIN=...
 REACT_APP_FIREBASE_PROJECT_ID=...
@@ -48,5 +47,5 @@ REACT_APP_FIREBASE_STORAGE_BUCKET=...
 REACT_APP_FIREBASE_MESSAGING_SENDER_ID=...
 REACT_APP_FIREBASE_APP_ID=...
 
-# Run the app
+# 4. Run the app
 npm start
