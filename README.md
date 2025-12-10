@@ -34,10 +34,10 @@ Users can browse movies, add them to favorites, and use the app offline.
 
 ```bash
 # Clone the repository
-git clone https://github.com/username/CineStream-Pro.git
+git clone https://github.com/Sokratius/react-end-term-project.git
 
 # Install dependencies
-cd CineStream-Pro
+cd react-end-term-project
 npm install
 
 # Create .env with Firebase config
