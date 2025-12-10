@@ -16,7 +16,6 @@ Users can browse movies, add them to favorites, and use the app offline.
 - **Profile Picture**: Upload and compress profile pictures, stored in Firebase.  
 - **PWA**: Offline support with service worker and installable app.  
 - **Languages**: English, Russian, Kazakh.  
-- **Push Notifications**: Optional notifications via Firebase.  
 
 ---
 
