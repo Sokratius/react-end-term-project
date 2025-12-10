@@ -3,7 +3,7 @@
 CineStream Pro is a movie web app built with **React** and **Firebase**.  
 Users can browse movies, add them to favorites, and use the app offline.
 
-![App Screenshot](./'CineStream Pro.png')
+![App Screenshot](./CineStream-Pro.png)
 
 ---
 
