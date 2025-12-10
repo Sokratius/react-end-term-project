@@ -1,20 +1,53 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# CineStream Pro 🎬
 
-# Run and deploy your AI Studio app
+CineStream Pro is a movie web app built with **React** and **Firebase**.  
+Users can browse movies, add them to favorites, and use the app offline.
 
-This contains everything you need to run your app locally.
+![App Screenshot](./screenshots/home.png)
 
-View your app in AI Studio: https://ai.studio/apps/temp/2
+---
 
-## Run Locally
+## **Features**
 
-**Prerequisites:**  Node.js
+- **Authentication**: Signup, login, logout with Firebase Auth.  
+- **Protected pages**: Profile or Dashboard for logged-in users only.  
+- **Movies**: List of movies, movie details, search, filters, and pagination.  
+- **Favorites**: Save movies locally for guests or in Firestore for logged-in users.  
+- **Profile Picture**: Upload and compress profile pictures, stored in Firebase.  
+- **PWA**: Offline support with service worker and installable app.  
+- **Languages**: English, Russian, Kazakh.  
+- **Push Notifications**: Optional notifications via Firebase.  
 
+---
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## **Pages**
+
+- Home / About Us  
+- Login / Signup  
+- Movies List  
+- Movie Details  
+- Favorites / Bookmarks / Cart  
+- Profile / Dashboard (protected)
+
+---
+
+## **Installation**
+
+```bash
+# Clone the repository
+git clone https://github.com/username/CineStream-Pro.git
+
+# Install dependencies
+cd CineStream-Pro
+npm install
+
+# Create .env with Firebase config
+REACT_APP_FIREBASE_API_KEY=...
+REACT_APP_FIREBASE_AUTH_DOMAIN=...
+REACT_APP_FIREBASE_PROJECT_ID=...
+REACT_APP_FIREBASE_STORAGE_BUCKET=...
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=...
+REACT_APP_FIREBASE_APP_ID=...
+
+# Run the app
+npm start
