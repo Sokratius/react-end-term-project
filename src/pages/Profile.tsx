@@ -5,7 +5,7 @@ import { db } from '../services/firebase';
 import { Camera, User, Loader2 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
-// Inline worker code for portability
+// изучить подробнее
 const WORKER_CODE = `
 self.onmessage = async (e) => {
   const { file } = e.data;
@@ -50,18 +50,18 @@ const Profile: React.FC = () => {
       
       if (success && blob) {
         try {
-          // Convert Blob to Base64
+          // работа с base64
           const reader = new FileReader();
           reader.readAsDataURL(blob);
           
           reader.onloadend = async () => {
             const base64data = reader.result as string;
             
-            // Save Base64 to Firestore
+            // сохранения басе64 в фаирстор
             const userRef = doc(db, 'users', user.uid);
             await setDoc(userRef, { photoBase64: base64data }, { merge: true });
             
-            // Update local state immediately
+            // обновление локали немедленно
             setUser({ ...user, photoURL: base64data });
             setUploading(false);
             worker.terminate();

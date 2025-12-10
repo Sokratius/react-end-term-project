@@ -7,7 +7,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
 import { Loader2 } from 'lucide-react';
 
-// Lazy Load Pages
+// ленивая загрузка страниц
 const Movies = lazy(() => import('./pages/Movies'));
 const MovieDetail = lazy(() => import('./pages/MovieDetail'));
 const Favorites = lazy(() => import('./pages/Favorites'));
@@ -18,7 +18,7 @@ const Profile = lazy(() => import('./pages/Profile'));
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { user } = useStore();
   
-  // Note: We don't need to check isLoading here because App handles the initial load.
+  
   if (!user) return <Navigate to="/login" replace />;
   
   return <>{children}</>;
@@ -29,11 +29,10 @@ const App: React.FC = () => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (authUser) => {
-      // Ensure loading is true while we process the auth state change
-      // Only set it true if it's not already true (to avoid loops if we had one, though useEffect dep array prevents it)
+      
       
       if (authUser) {
-        // 1. Fetch extended profile data (Base64 image) from Firestore
+        
         let photoURL = authUser.photoURL;
         try {
           const userDoc = await getDoc(doc(db, 'users', authUser.uid));
@@ -44,11 +43,10 @@ const App: React.FC = () => {
           console.error("Error fetching user profile:", error);
         }
 
-        // 2. Fetch User Favorites from Firestore
-        // This is critical to ensure data persistence on reload
+        
         await fetchFavorites(authUser.uid);
 
-        // 3. Update User State
+    
         setUser({
           uid: authUser.uid,
           email: authUser.email,
@@ -56,7 +54,7 @@ const App: React.FC = () => {
           photoURL: photoURL,
         });
       } else {
-        // Not logged in: Fetch from local storage
+        
         await fetchFavorites(undefined);
         setUser(null);
       }

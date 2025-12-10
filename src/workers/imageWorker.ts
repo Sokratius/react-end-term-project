@@ -1,4 +1,4 @@
-// This code runs in a separate thread
+
 self.onmessage = async (e: MessageEvent) => {
   const { file } = e.data;
   
@@ -11,7 +11,7 @@ self.onmessage = async (e: MessageEvent) => {
 
     if (!ctx) throw new Error('No context');
 
-    // Calculate aspect ratio fit
+
     const scale = Math.min(300 / bitmap.width, 300 / bitmap.height);
     const width = bitmap.width * scale;
     const height = bitmap.height * scale;

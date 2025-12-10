@@ -25,7 +25,7 @@ export const useStore = create<AppState>((set, get) => ({
 
   fetchFavorites: async (uid?: string) => {
     if (uid) {
-      // Load from Firestore
+      // загрузка с firestore
       try {
         const docRef = doc(db, 'users', uid);
         const docSnap = await getDoc(docRef);
@@ -41,11 +41,11 @@ export const useStore = create<AppState>((set, get) => ({
         }
       } catch (e) {
         console.error("Error fetching favorites from Firestore", e);
-        // Fallback to empty if fail, prevents crashing app
+        // решение в виде фаллбака
         set({ favorites: [] });
       }
     } else {
-      // Load from LocalStorage
+      // загрузка с localStorage
       const local = localStorage.getItem('favorites');
       if (local) {
         try {
@@ -63,7 +63,7 @@ export const useStore = create<AppState>((set, get) => ({
     const { user, favorites } = get();
     if (!user) return;
 
-    // Merge logic
+    // мерджим логику
     const userRef = doc(db, 'users', user.uid);
     try {
       const docSnap = await getDoc(userRef);
@@ -75,15 +75,15 @@ export const useStore = create<AppState>((set, get) => ({
         }
       }
 
-      // Merge arrays unique by ID
+      // мерджим массив в один и тот же айди
       const map = new Map();
-      // Remote favorites take precedence for metadata, but we merge lists
+      
       [...favorites, ...remoteFavorites].forEach(m => map.set(m.id, m));
       const merged = Array.from(map.values());
 
       await setDoc(userRef, { favorites: merged }, { merge: true });
       set({ favorites: merged });
-      localStorage.removeItem('favorites'); // Clear local after sync
+      localStorage.removeItem('favorites'); 
     } catch (e) {
       console.error("Sync failed", e);
     }
@@ -91,7 +91,7 @@ export const useStore = create<AppState>((set, get) => ({
 
   addToFavorites: async (movie) => {
     const { user, favorites } = get();
-    // Optimistic update
+
     const exists = favorites.find(m => m.id === movie.id);
     if (exists) return;
 
@@ -100,12 +100,12 @@ export const useStore = create<AppState>((set, get) => ({
 
     if (user) {
       const userRef = doc(db, 'users', user.uid);
-      // Use setDoc with merge to ensure document creation if it doesn't exist
+      
       await setDoc(userRef, {
         favorites: newFavorites
       }, { merge: true }).catch((error) => {
         console.error("Failed to add favorite to Firestore", error);
-        // Rollback on error if needed
+
         set({ favorites });
       });
     } else {

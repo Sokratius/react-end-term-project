@@ -4,7 +4,7 @@ const STATIC_ASSETS = [
   '/index.html',
   '/manifest.json',
   '/offline.html',
-  'https://cdn.tailwindcss.com' // Cache external styling
+  'https://cdn.tailwindcss.com' 
 ];
 
 self.addEventListener('install', (event) => {
@@ -32,12 +32,12 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-  // Only process GET requests
+
   if (event.request.method !== 'GET') return;
 
   const url = new URL(event.request.url);
 
-  // 1. Handle Navigation Requests (HTML) -> Network First, then Offline Page
+
   if (event.request.mode === 'navigate') {
     event.respondWith(
       fetch(event.request)
@@ -51,7 +51,7 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // 2. Handle TMDB API Calls -> Network First, then Cache
+
   if (url.pathname.includes('/3/')) {
     event.respondWith(
       fetch(event.request)
@@ -71,8 +71,8 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // 3. Handle Images (TMDB Posters) -> Cache First, then Network
-  // This ensures images load instantly if previously viewed, great for offline lists
+
+
   if (url.hostname.includes('tmdb.org') && url.pathname.includes('/t/p/')) {
     event.respondWith(
       caches.match(event.request).then((cachedResponse) => {
@@ -93,7 +93,7 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // 4. Handle Static Assets -> Cache First
+
   if (!url.hostname.includes('firestore') && !url.hostname.includes('googleapis') && !url.pathname.includes('/api/')) {
     event.respondWith(
       caches.match(event.request).then((response) => {

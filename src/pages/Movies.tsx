@@ -14,7 +14,7 @@ const Movies: React.FC = () => {
   const [error, setError] = useState(false);
   const [totalPages, setTotalPages] = useState(0);
 
-  // Filter State
+  // фильтр
   const query = searchParams.get('query') || '';
   const page = parseInt(searchParams.get('page') || '1', 10);
   const sortBy = searchParams.get('sort_by') || 'popularity.desc';
@@ -125,7 +125,7 @@ const Movies: React.FC = () => {
         </div>
       )}
 
-      {/* Pagination */}
+      {/* пагинация */}
       {!error && !loading && (
         <div className="flex justify-center items-center space-x-4 mt-8">
           <button
