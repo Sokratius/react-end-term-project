@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offline - CineStream Pro</title>
+  <style>
+    body {
+      background-color: #020617;
+      color: #e2e8f0;
+      font-family: system-ui, -apple-system, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+    .icon {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 24px;
+      color: #64748b;
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+    p {
+      color: #94a3b8;
+      margin-bottom: 24px;
+    }
+    button {
+      background-color: #0ea5e9;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    button:hover {
+      background-color: #0284c7;
+    }
+  </style>
+</head>
+<body>
+  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M1 1l22 22"></path>
+    <path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"></path>
+    <path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"></path>
+    <path d="M10.71 5.05A16 16 0 0 1 22.58 9"></path>
+    <path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"></path>
+    <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+    <line x1="12" y1="20" x2="12.01" y2="20"></line>
+  </svg>
+  <h1>You are currently offline</h1>
+  <p>Please check your internet connection and try again.</p>
+  <button onclick="window.location.reload()">Retry</button>
+</body>
+</html>

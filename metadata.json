@@ -1,0 +1,8 @@
+{
+  "name": "CineStream Pro",
+  "description": "A premium movie discovery application with personalized lists, multi-language support, and offline capabilities using TMDB API and Firebase.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
