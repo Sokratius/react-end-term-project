@@ -1,6 +1,6 @@
 import { Movie, MovieDetails } from '../types';
 
-const API_KEY = 'a70153d9cb49e9872a771ccad18e57d3';
+const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 const BASE_URL = 'https://api.themoviedb.org/3';
 
 // Helper to map app languages to TMDB locales

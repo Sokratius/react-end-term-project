@@ -2,14 +2,14 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
-// Your web app's Firebase configuration
+
 const firebaseConfig = {
-  apiKey: "AIzaSyCh_ylYzCq4uuDBBtAH_A7Xlq5YgAEiUoo",
-  authDomain: "cinestream-pro-14dc7.firebaseapp.com",
-  projectId: "cinestream-pro-14dc7",
-  storageBucket: "cinestream-pro-14dc7.firebasestorage.app",
-  messagingSenderId: "261532809572",
-  appId: "1:261532809572:web:730cd10e43b4a88128e271"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);
